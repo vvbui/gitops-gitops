@@ -19,7 +19,7 @@ pipeline {
     stage ('Apply resources') {
       steps {
         when {
-          branch 'main'
+          branch 'master'
         }
       }
     }
