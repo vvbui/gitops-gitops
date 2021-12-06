@@ -17,10 +17,12 @@ pipeline {
       }
     }
     stage ('Apply resources') {
+      when {
+        branch 'master'
+      }
       steps {
-        when {
-          branch 'master'
-        }
+        sh 'oc apply -k config'
+        sh './wait_oauth.sh'
       }
     }
     stage ('Verify test user') {
